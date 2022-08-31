@@ -1,0 +1,85 @@
+header{
+    height: 120px;
+    width: 100%;
+    margin: 0px;
+    padding: 5px;
+    border-style: solid;
+    border-color: lightblue;  
+}
+
+#mainTitle {
+    position: absolute;
+    top: 5%;
+    left: 45%;
+    font-size: 50px;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+#memberInfo {
+    position: absolute;
+    top: 5%;
+    left: 79%;
+    font-size: 20px;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+#logo {
+    float: left;
+}
+
+#login {
+    padding: 5px;
+    position: absolute;
+    left: 82%;
+    top: 9%;
+}
+
+#join, #logout {
+    padding: 5px;
+    position: absolute;
+    left: 87%;
+    top: 9%;
+}
+
+#navListTitle{
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 26px;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    background-color: lightblue;
+}
+
+#navList {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 26px;
+    color: black;
+    padding: 10px;
+}
+
+#navList:hover {
+    background-color: lightblue;
+}
+
+#mainPhoto {
+    padding: 1px;
+}
+
+/*#teacherTable { !* 적용안됨*!*/
+/*    left: 30%;*/
+/*    top: 40%;*/
+/*}*/
+
+#eventPhoto {
+    /* position: relative;
+    width: 47%;
+    height: 50%; */
+    padding: 1px;
+}
+
+#eventPhoto2 {
+    /* position: relative;
+    width: 47%;
+    height: 50%; */
+    padding: 1px;
+}

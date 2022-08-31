@@ -1,0 +1,39 @@
+<테이블 생성>
+//member
+create table member (
+mid varchar(30),
+mpw varchar(40) not null,
+mname varchar(20) not null,
+phoneNum varchar(14) not null,
+address varchar(100),
+constraint member_pk_mid primary key (mid)
+)
+
+//teacher
+create table teacher(
+tname varchar(20) not null,
+career int(2),
+constraint teacher_pk_tname primary key (tname)
+)
+
+//cboard
+create table cboard (
+cid int auto_increment,
+ctitle varchar(100) not null,
+ccontent varchar(500) not null,
+cdate date default(current_date()),
+cpw varchar(10) not null,
+mid varchar(30),
+tname varchar(20),
+constraint cboard_pk_cid primary key (cid),
+constraint cboard_fk_tname foreign key (tname) references teacher(tname) on delete set null  //제약조건으로 mid도 넣었다가 아직 로그인 기능이 구현이 안돼서 뺌
+)
+
+<member>
+insert into member values("park123", "p123", "박채원", "010-0011-1100", "서울시 관악구")
+
+<teacher>
+insert into teacher(tname, career) values("유지애", 10)
+
+<cboard>
+insert into cboard(ctitle, ccontent, mid, tname, cpw) values("수강상담 신청합니다","월요일에 수강하고 싶습니다.","park123","유지애","1234")
