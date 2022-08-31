@@ -28,15 +28,15 @@ public class CBoardRepositoryImpl implements CBoardRepository {
     }
 
     @Override
-    public int insertBoard(String title, String content, String id, String name, String pw) {
-        String sql = "insert into cboard(ctitle, ccontent, mid, tname, cpw) values(?,?,?,?,?)";
-        return jdbcTemplate.update(sql, title, content, id, name, pw);
+    public int insertBoard(String title, String content, String id, String name) {
+        String sql = "insert into cboard(ctitle, ccontent, mid, tname) values(?,?,?,?)";
+        return jdbcTemplate.update(sql, title, content, id, name);
     }
 
     @Override
-    public int updateBoard(long cId, String title, String content, String name, String pw) {
-        String sql = "update cboard set ctitle = ?, ccontent = ?, tname = ? where cid = ? and cpw = ?";
-        return jdbcTemplate.update(sql, title, content, name, cId, pw);
+    public int updateBoard(long cId, String title, String content, String name) {
+        String sql = "update cboard set ctitle = ?, ccontent = ?, tname = ? where cid = ?";
+        return jdbcTemplate.update(sql, title, content, name, cId);
     }
 
     @Override
@@ -46,8 +46,9 @@ public class CBoardRepositoryImpl implements CBoardRepository {
     }
 
     @Override
-    public String confirmPassword(long cId) {
-        String sql = "select cpw from cboard where cid = " + cId;
+    public String confirmUser(long cId) {
+//        String sql = "select cpw from cboard where cid = " + cId;
+        String sql = "select mid from cboard where cid = " + cId;
         return jdbcTemplate.queryForObject(sql, String.class);
     }
 

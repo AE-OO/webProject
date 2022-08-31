@@ -12,8 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -29,9 +28,13 @@
             <div class="col">
                 <h1 id="mainTitle">유필라테스</h1>
             </div>
-            <div class="col">
-                <button type="button" class="btn btn-outline-info" id="login">로그인</button>
-                <button type="button" class="btn btn-outline-info" id="join">회원가입</button>
+            <div class="col" th:if="${session.ID eq null}">
+                <a href="/login"><button type="button" class="btn btn-outline-info" id="login">로그인</button></a>
+                <a href="/join"><button type="button" class="btn btn-outline-info" id="join">회원가입</button></a>
+            </div>
+            <div class="col" th:unless="${session.ID eq null}">
+                <p id="memberInfo">[[${session.ID}]] 님 안녕하세요</p>
+                <a href="/logout"><button type="button" class="btn btn-outline-info" id="logout">로그아웃</button></a>
             </div>
         </div>
     </div>
@@ -67,7 +70,8 @@
                     <tr>
                         <td>
                             <span class="input-group-text" id="inputGroup-sizing-default">작성자</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="id" th:value="${cBoard.getMId()}">
+<!--                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="id" th:value="${cBoard.getMId()}">-->
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="id" th:value="${session.ID}" readonly>
                         </td>
                     </tr>
                     <tr>
@@ -85,12 +89,12 @@
                             <textarea class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" cols="70" rows="5" name="content">[[${cBoard.cContent}]]</textarea>
                         </td>
                     </tr>  
-                    <tr>
-                        <td>
-                            <span class="input-group-text" id="inputGroup-sizing-default">비밀번호</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:value="${cBoard.getCPw()}" name="pw" readonly>
-                        </td>
-                    </tr>
+<!--                    <tr>-->
+<!--                        <td>-->
+<!--                            <span class="input-group-text" id="inputGroup-sizing-default">비밀번호</span>-->
+<!--                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:value="${cBoard.getCPw()}" name="pw" readonly>-->
+<!--                        </td>-->
+<!--                    </tr>-->
                     <input type="hidden" name="cid" th:value="${cBoard.getCId()}">  
                 </table>
                 <button type="submit" class="btn btn-outline-success" id="update">수정하기</button>
