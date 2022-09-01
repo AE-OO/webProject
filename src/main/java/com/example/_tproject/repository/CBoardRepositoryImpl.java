@@ -15,7 +15,8 @@ public class CBoardRepositoryImpl implements CBoardRepository {
 
     @Override
     public List<CBoard> showList() {
-        String sql = "select * from cboard";
+//        String sql = "select * from cboard";
+        String sql = "select @rownum:= @rownum+1 as rownum, a.* from (select cid, ctitle, cdate, mid, tname from cboard order by cid desc) a where (@rownum:= 0)=0";
         List<CBoard> list = jdbcTemplate.query(sql,new BeanPropertyRowMapper<CBoard>(CBoard.class));
         return list;
     }

@@ -67,7 +67,7 @@
                         </thead>
                         <tbody align="center">
                             <tr th:each="cBoard : ${cBoard}" >
-                                <td>[[${cBoard.cId}]]</td>
+                                <td>[[${cBoard.rowNum}]]</td>
                                 <td><a th:href="@{/consultContent(cId = ${cBoard.getCId()})}">[[${cBoard.cTitle}]]</a></td>
                                 <td>[[${cBoard.mId}]]</td>
                                 <td>[[${cBoard.tName}]]</td>

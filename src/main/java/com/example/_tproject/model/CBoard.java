@@ -11,4 +11,5 @@ public class CBoard {
     private String cPw;
     private String mId;
     private String tName;
+    private long rowNum;
 }
