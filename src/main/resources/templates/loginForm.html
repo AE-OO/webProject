@@ -58,25 +58,25 @@
         <div class="col">
             <form th:action="@{/confirmLogin}" method="post">
                 <table class="table caption-top">
-                    <caption> <!-- 캡션 위치 -->
+                    <caption>
                         <h3>로그인</h3>
                     </caption>
                     <tr>
-                        <div class="input-group mb-3">
+                        <td>
                             <span class="input-group-text" id="inputGroup-sizing-default">아이디</span>
                             <input type="text" class="form-control" aria-label="Sizing example input"
                                    aria-describedby="inputGroup-sizing-default" name="mid">
-                        </div>
+                        </td>
                     </tr>
                     <tr>
-                        <div class="input-group mb-3">
+                        <td>
                             <span class="input-group-text" id="inputGroup-sizing-default">비밀번호</span>
                             <input type="password" class="form-control" aria-label="Sizing example input"
                                    aria-describedby="inputGroup-sizing-default" name="mpw">
-                        </div>
+                        </td>
                     </tr>
                 </table>
-                <button type="submit" class="btn btn-outline-info" id="confirmLogin">로그인</button>
+                <button type="submit" class="btn btn-outline-success" id="confirmLogin">로그인</button>
             </form>
         </div>
     </div>
