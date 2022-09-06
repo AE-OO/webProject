@@ -1,0 +1,35 @@
+<th:block th:replace="~{/myTemplate/template :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+        <img src="/main.jpg" class="img-fluid" id="mainPhoto">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <table id="teacherTable">
+                        <tr>
+                            <td colspan="2">이미지</td>
+                        </tr>
+                        <tr>
+                            <td>이름</td>
+                            <td>유지애</td>
+                        </tr>
+                        <tr>
+                            <td>경력</td>
+                            <td>
+                                강사 경력 10년
+                                현)유필라테스 원장<br>
+                                전)이필라테스 강사<br>
+                                전)박필라테스 강사<br>
+                                전)오필라테스 강사
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col">
+                    <img src="/event.png" class="img-fluid" id="eventPhoto2">
+                </div>
+            </div>
+        </div>
+    </th:block>
+</th:block>
+
+
