@@ -4,6 +4,7 @@ import com.example._tproject.model.Member;
 import com.example._tproject.repository.CBoardRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,13 +30,16 @@ public class LoginController {
     @RequestMapping("/confirmLogin")
     public String login(@RequestParam String mid, @RequestParam String mpw, HttpServletRequest request, Model model) {
         //HttpSession session = request.getSession(false);  //false로 주는 이유는 로그인 안하고 그냥 홈페이지에 접속만 한 사람한테 세션을 주지 않기위해서
-
-        if (cBoardRepository.loginCheck(mid).getMPw().equals(mpw)) {
-            Member member = cBoardRepository.loginCheck(mid);
-            HttpSession session = request.getSession();
-            session.setAttribute("ID", mid);
-            model.addAttribute("member", member);
-            return "/yoopilates/home";
+        try {
+            if (cBoardRepository.loginCheck(mid).getMPw().equals(mpw)) {
+                Member member = cBoardRepository.loginCheck(mid);
+                HttpSession session = request.getSession();
+                session.setAttribute("ID", mid);
+                model.addAttribute("member", member);
+                return "/yoopilates/home";
+            }
+        } catch (EmptyResultDataAccessException e) {
+            return "/errorNconfirm/nullText";
         }
         return "/errorNconfirm/loginFail";
     }
