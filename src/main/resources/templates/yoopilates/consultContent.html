@@ -1,0 +1,48 @@
+<th:block th:replace="~{/myTemplate/template :: setContent(~{this :: content})}">
+    <th:block th:fragment="content">
+        <div class="col">
+            <table class="table caption-top">
+                <caption>
+                    <h3>상담내용</h3>
+                </caption>
+                <tr>
+                    <td>
+                        <span class="input-group-text" id="inputGroup-sizing-default">제목</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-default" th:value="${cBoard.getCTitle()}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="input-group-text" id="inputGroup-sizing-default">작성자</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-default" th:value="${cBoard.getMId()}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="input-group-text" id="inputGroup-sizing-default">선생님</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-default" th:value="${cBoard.getTName()}" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="input-group-text" id="inputGroup-sizing-default">상담내용</span>
+                        <textarea class="form-control" aria-label="Sizing example input"
+                                  aria-describedby="inputGroup-sizing-default" cols="70" rows="5" readonly>[[${cBoard.cContent}]]</textarea>
+                    </td>
+                </tr>
+            </table>
+            <a th:href="@{/yoopilates/consultUpdate/{cId}(cId = ${cBoard.getCId()})}">
+                <button class="btn btn-outline-success" id="doUpdate">수정</button>
+            </a>
+            <a th:href="@{/yoopilates/consultDelete/{cId}(cId = ${cBoard.getCId()})}">
+                <button class="btn btn-outline-success" id="doDelete">삭제</button>
+            </a>
+            <a th:href="@{/yoopilates/consult}">
+                <button class="btn btn-outline-success" id="doConsult">목록으로</button>
+            </a>
+        </div>
+    </th:block>
+</th:block>

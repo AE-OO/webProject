@@ -1,0 +1,54 @@
+<th:block th:replace="~{/myTemplate/template :: setContent(~{this :: content})}">
+    <th:block th:fragment="content">
+        <div class="col">
+            <form th:action="@{/yoopilates/consultUpdateConfirm}" method="post">
+                <table class="table caption-top">
+                    <caption>
+                        <h3>상담내용 수정</h3>
+                    </caption>
+                    <tr>
+                        <td>
+                            <span class="input-group-text" id="inputGroup-sizing-default">제목</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-default" name="title"
+                                   th:value="${cBoard.getCTitle()}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="input-group-text" id="inputGroup-sizing-default">작성자</span>
+                            <!--                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="id" th:value="${cBoard.getMId()}">-->
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-default" name="id" th:value="${session.ID}"
+                                   readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="input-group-text" id="inputGroup-sizing-default">선생님</span>
+                            <input type="radio" value="park" name="name"/>박
+                            <input type="radio" value="oh" name="name"/>오
+                            <input type="radio" value="유지애" name="name"/>유
+                            <input type="radio" value="lee" name="name"/>이
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="input-group-text" id="inputGroup-sizing-default">상담내용</span>
+                            <textarea class="form-control" aria-label="Sizing example input"
+                                      aria-describedby="inputGroup-sizing-default" cols="70" rows="5" name="content">[[${cBoard.cContent}]]</textarea>
+                        </td>
+                    </tr>
+                    <!--                    <tr>-->
+                    <!--                        <td>-->
+                    <!--                            <span class="input-group-text" id="inputGroup-sizing-default">비밀번호</span>-->
+                    <!--                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:value="${cBoard.getCPw()}" name="pw" readonly>-->
+                    <!--                        </td>-->
+                    <!--                    </tr>-->
+                    <input type="hidden" name="cId" th:value="${cBoard.getCId()}">
+                </table>
+                <button type="submit" class="btn btn-outline-success" id="update">수정하기</button>
+            </form>
+        </div>
+    </th:block>
+</th:block>

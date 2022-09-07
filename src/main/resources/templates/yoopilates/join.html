@@ -1,0 +1,56 @@
+<th:block th:replace="~{/myTemplate/template :: setContent(~{this :: content})}">
+    <th:block th:fragment="content">
+        <div class="col">
+            <form th:action="@{/yoopilates/confirmJoin}" method="post">
+                <table class="table caption-top">
+                    <caption>
+                        <h3>회원가입</h3>
+                    </caption>
+                    <tr>
+                        <td>
+                            <span class="input-group-text" id="inputGroup-sizing-default">아이디</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-default" name="mid">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="input-group-text" id="inputGroup-sizing-default">비밀번호</span>
+                            <input type="password" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-default" name="mpw">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="input-group-text" id="inputGroup-sizing-default">비밀번호 확인</span>
+                            <input type="password" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-default" name="checkMpw">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="input-group-text" id="inputGroup-sizing-default">이름</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-default" name="mName">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-default" name="mPhoneNum">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-default" name="mAddress">
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit" class="btn btn-outline-success" id="confirmJoin">회원가입</button>
+            </form>
+        </div>
+    </th:block>
+</th:block>

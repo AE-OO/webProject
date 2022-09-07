@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Log4j2
 @RequestMapping("/yoopilates")
 public class MainController {
-    @GetMapping("/home")
-    public void home(){
-        log.info("mainPage...");
+    @GetMapping({"/home","/"})
+    public String home(){
+        log.info("Main Page...");
+        return "/yoopilates/home";
     }
 
     @GetMapping("/info")
-    public void info(){
-        log.info("infoPage...");
+    public String info(){
+        log.info("Info Page...");
+        return "yoopilates/info";
     }
 }

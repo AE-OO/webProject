@@ -9,36 +9,54 @@ header{
 
 #mainTitle {
     position: absolute;
-    top: 5%;
+    top: 4%;
     left: 45%;
     font-size: 50px;
+    font-family: 'Black Han Sans', sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+#teacherInfo {
+    margin-top: 10px;
+    font-size: 35px;
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+#teacherTable {
+    margin-left: 10px;
+    font-size: 20px;
     font-family: 'Black Han Sans', sans-serif;
 }
 
 #memberInfo {
-    position: absolute;
-    top: 5%;
-    left: 79%;
     font-size: 20px;
     font-family: 'Black Han Sans', sans-serif;
+    margin-right: 10px;
 }
 
 #logo {
     float: left;
 }
 
+#memberInfo, #logout{
+    display: inline-block;
+}
+
 #login {
     padding: 5px;
-    position: absolute;
     left: 82%;
-    top: 9%;
+    top: 8%;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 #join, #logout {
     padding: 5px;
-    position: absolute;
     left: 87%;
-    top: 9%;
+    top: 8%;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 #navListTitle{
@@ -65,11 +83,6 @@ header{
     padding: 1px;
 }
 
-/*#teacherTable { !* 적용안됨*!*/
-/*    left: 30%;*/
-/*    top: 40%;*/
-/*}*/
-
 #eventPhoto {
     /* position: relative;
     width: 47%;
@@ -82,4 +95,9 @@ header{
     width: 47%;
     height: 50%; */
     padding: 1px;
+}
+
+#titleLink {
+    color: black;
+    text-decoration: none;
 }

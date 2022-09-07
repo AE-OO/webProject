@@ -1,0 +1,32 @@
+<th:block th:replace="~{/myTemplate/template :: setContent(~{this::content})}">
+    <th:block th:fragment="content">
+                <div class="col">
+                    <table class="table table-hover caption-top">
+                        <caption>
+                            <h3>상담목록</h3><br />
+                            내용을 확인하려면 제목을 클릭하세요
+                        </caption>
+                        <thead class="table-light" align="center">
+                            <td>번호</td>
+                            <td>제목</td>
+                            <td>작성자</td>
+                            <td>선생님</td>
+                            <td>작성일</td>
+                        </thead>
+                        <tbody align="center">
+                            <tr th:each="cBoard : ${cBoard}" >
+                                <td>[[${cBoard.rowNum}]]</td>
+                                <td id="titleLink"><a th:href="@{/yoopilates/consultContent/{cId}(cId = ${cBoard.getCId()})}">[[${cBoard.cTitle}]]</a></td>
+                                <td>[[${cBoard.mId}]]</td>
+                                <td>[[${cBoard.tName}]]</td>
+                                <td>[[${cBoard.cDate}]]</td>
+                                <!--40번째줄 처럼 적는거랑 이거처럼 적는거랑 차이점? td태그 안에 적어줄 때는 th:text="${cBoard.getCDate}" 이거처럼 게터로 데이터를 가져오지 않으면 오류남-->
+                            </tr>
+                            </tbody>
+                    </table>
+                    <a th:href="@{/yoopilates/consultReg}"><button class="btn btn-outline-success" id="doConsult">상담신청</button></a>
+                </div>
+            </div>
+        </div>
+    </th:block>
+</th:block>
